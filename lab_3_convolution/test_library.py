@@ -36,4 +36,4 @@ for M in [256, 512, 1024]:
         elapsed = end - start
         print(f"| {M:5} | {N} | {elapsed:.6f}     |")
 
-print("\n✅ All tests completed!")
+print("All tests completed!")

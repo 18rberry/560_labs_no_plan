@@ -87,8 +87,6 @@ extern "C" void gpu_matrix_multiply(float *h_A, float *h_B, float *h_C, int N)
     cudaFree(d_C);
 }
 
-// ============ ADD YOUR CONVOLUTION CODE BELOW ============
-
 // Convolution kernel
 __global__ void convolve2D_GPU(float *input_image, float *filter, float *output_image, int N, int M)
 {

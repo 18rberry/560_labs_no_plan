@@ -227,7 +227,7 @@ int main(int argc, char **argv)
     for (int i = 0; i < M * M; i++)
     {
         // Scale down and clamp
-        float val = output[i]; // Adjust this divisor to taste
+        float val = output[i];
         if (val < 0)
             val = 0;
         if (val > 255)
