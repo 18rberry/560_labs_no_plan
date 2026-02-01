@@ -3,10 +3,7 @@
 
 Team Name: NoPlan 
 
-Team Members: 
-Riya Berry 
-Benjamin Lu 
-Ryan Tung 
+Team Members: Riya Berry | Benjamin Lu | Ryan Tung 
 
 This repo illustrates our lab assignmnets for DSCI 560 (Spring 2026). For Lab 3, please visit "lab_3" (part 1, PDF of lab report) and "lab_3_convolution" (part 2). We have also provided our code files for part 2 in ".vscode" folder. 
 
