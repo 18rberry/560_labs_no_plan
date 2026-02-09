@@ -47,7 +47,7 @@ def simulation(df, current_positions, STARTING_CASH):
 
         history.append({'Date': date, 'Portfolio Value': portfolio_value})
 
-    return history
+    return history, current_positions
 
             
 if __name__ == '__main__':
@@ -69,7 +69,7 @@ if __name__ == '__main__':
                          'AMZN': 0}
     
     # Run simulation
-    history = simulation(df, current_positions, STARTING_CASH)
+    history, final_positions = simulation(df, current_positions, STARTING_CASH)
 
     # Format output
     portfolio_df = pd.DataFrame(history)
@@ -93,6 +93,7 @@ if __name__ == '__main__':
     print(f'Annualized return: {annualized_return:%}')
     print(f'Sharpe ratio: {sharpe_ratio}')
     print(f'Number of days simulated: {total_days}')
+    print(f'Final position: {final_positions}')
 
 
 
