@@ -7,8 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/19XZgOyoJHkUgGuy2kg8PH1bUocGRZY8P
 """
 
-!pip3 install gensim
-
 import nltk
 import gensim
 from nltk.tokenize import word_tokenize
