@@ -189,11 +189,7 @@ def extract_well_info(pdf_path: str) -> dict:
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
             # Early exit once all fields are populated
-            if all([
-                info["well_name"], info["operator"], info["api"],
-                info["county"], info["address"],
-                info["latitude"], info["longitude"],
-            ]):
+            if all([info["well_name"], info["operator"], info["api"], info["county"]]):
                 break
 
             text = page.extract_text()
@@ -387,6 +383,38 @@ def extract_well_info(pdf_path: str) -> dict:
                                     info["county"] = m.group(1)
                                     break
                         break
+
+            # -- Survey Calculation Program (directional survey header) ---
+            if not info["well_name"] and "SURVEY CALCULATION PROGRAM" in text:
+                wn = _first_match(r"Well\s+Name:\s*(.+)", text)
+                if wn:
+                    info["well_name"] = _clean(wn)
+                if not info["operator"]:
+                    op = _first_match(r"Company:\s*(.+)", text)
+                    if op:
+                        info["operator"] = _clean(op)
+                if not info["county"]:
+                    loc = _first_match(r"Location:\s*(\w+)\s+County", text, re.I)
+                    if loc:
+                        info["county"] = loc
+
+            # -- ADVANTAGE Field Survey Listing ----------------------------
+            if not info["well_name"] and "ADVANTAGE Field Survey Listing" in text:
+                wn = _first_match(r"^Well\s+(.+?)\s+Wellbore", text, flags=re.M)
+                if wn:
+                    info["well_name"] = _clean(wn)
+                if not info["operator"]:
+                    op = _first_match(r"Operator\s+(.+?)\s+Fields", text)
+                    if op:
+                        info["operator"] = _clean(op)
+                if not info["county"]:
+                    county = _first_match(r"Fields\s+(\w+)\s+County", text)
+                    if county:
+                        info["county"] = county
+                if not info["api"]:
+                    api = _first_match(r"API\s+No\s+([\d\-]+)", text)
+                    if api and re.match(r"^\d{2}-\d{3}-\d{5}", api):
+                        info["api"] = api
 
             # -- Spill / Incident Report (last resort) ---------------------
             if "Spill / Incident Report" in text and (

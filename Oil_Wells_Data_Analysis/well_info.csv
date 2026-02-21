@@ -1,5 +1,5 @@
 well_file_number,well_name,operator,api,county,state,address,latitude,longitude
-11745,Basic Game & Fish 34-3,,,,ND,,,
+11745,Basic Game & Fish 34-3H,"RIM Operating, INC.",,Mckenzie,ND,,,
 11920,Corps Of Engineers 31-10,"Rim Operating, Inc.",,Mckenzie,ND,,,
 15358,LEWIS & CLARK 2-4H,"RIM OPERATING, INC.",,Mckenzie,ND,5 INVERNESS DRIVE EAST ENGLEWOOD 80112,,
 20197,Wade Federal 5300 21-30H,Oasis Petroleum,33-053-03413-00-00,,ND,,,
@@ -17,15 +17,15 @@ well_file_number,well_name,operator,api,county,state,address,latitude,longitude
 22740,Larry 5301 44-12B,Oasis Petroleum,,Mckenzie,ND,,,
 23230,Ash Federal 5300 11-18T,Oasis Petroleum North America LLC,,,ND,"1001 Fannin, Suite 1500",,
 23359,Atlanta 14-SH,"Continental Resources, Inc.",33-105-02719,Williams,ND,P .0. Box 268870,,
-23360,,,33-105-02720,Williams,ND,,48.109,-103.728
+23360,Atlanta 13-6H,"Continental Resources, Inc.",33-105-02720,Williams,ND,,48.109,-103.728
 23361,AUmta 12-6H,"Continental Resources, Inc.",33-105-02721,Williams,ND,- P.O. Box 268870,48.109,-103.728
 23362,Atlanta 11-6H,"Continental Resources, Inc.",33-105-02722,Williams,ND,,48.11,-103.73
-23363,,,33-105-02723,Williams,ND,,,
-23364,,,33-105-02724,Well,ND,,,
-23365,,,33-105-02725,Williams,ND,,,
-23366,,,33-105-02726,Williams,ND,,,
+23363,Atlanta Federal 10-6H,"Continental Resources, Inc.",33-105-02723,Williams,ND,,,
+23364,Atlanta Federal 9-6H,"Continental Resources, Inc.",33-105-02724,Well,ND,,,
+23365,Atlanta Federal 8-6H,"Continental Resources, Inc.",33-105-02725,Williams,ND,,,
+23366,Atlanta Federal 7-6H,"Continental Resources, Inc.",33-105-02726,Williams,ND,,,
 23367,Atlanta Federal 6-6H,"Continental Resources, Inc.",33-105-02727,Williams,ND,,,
-23368,,,,Williams,ND,,,
+23368,Atlanta Federal 5-6H,"Continental Resources, Inc.",,Williams,ND,,,
 23369,Atlanta 4-6H,"Continental Resources, Inc.",33-105-02729,Williams,ND,,48.1094,-103.7329
 23370,Atlanta 3-6H,"Continental Resources, Inc.",,Williams,ND,P.O. Box 268870,48.1094,-103.7312
 23371,Atlanta 2-6H,"Continental Resources, Inc.",33-105-02731,Williams,ND,,,
