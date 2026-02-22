@@ -1,0 +1,75 @@
+,well_name,de_operator,county,state,address,de_status,de_well_type,de_direction,de_closest_city,de_latitude,de_longitude,de_oil_bbls,de_gas_mcf,de_production_start,de_production_end
+1,Corps Of Engineers 31-10,"RIM OPERATING, INC.",Mckenzie,ND,,Plugged and Abandoned,Oil & Gas,D,Williston,48.094925,-103.656644,64,,November 1986,December 2025
+2,LEWIS & CLARK 2-4H,"RIM OPERATING, INC.",Mckenzie,ND,5 INVERNESS DRIVE EAST ENGLEWOOD 80112,Active,Oil & Gas,H,Williston,48.104997,-103.670242,537,537,June 2003,December 2025
+3,Wade Federal 5300 21-30H,OASIS PETROLEUM NORTH AMERICA LLC,,ND,,Active,Oil & Gas,H,Williston,48.047147,-103.6031,63,12,July 2011,December 2025
+4,Chalmers 5300 31-19H,OASIS PETROLEUM NORTH AMERICA LLC,Williams,ND,,Abandoned,Oil & Gas,H,Williston,48.057438,-103.602355,,,December 2011,December 2025
+5,Foley Federal 5301 43-12H,OASIS PETROLEUM NORTH AMERICA LLC,Mckenzie,ND,,Active,Oil & Gas,H,Williston,48.08269,-103.611486,1 k,2.1 k,November 2011,December 2025
+6,Bray 5301 43-12H,OASIS PETROLEUM NORTH AMERICA LLC,Mckenzie,ND,,Active,Oil & Gas,H,Williston,48.082698,-103.611895,125,795,January 2012,December 2025
+7,DAHL 15-11H,OASIS PETROLEUM NORTH AMERICA LLC,County,ND,City State Zip Code,Plugged and Abandoned,Oil & Gas,H,Williston,48.082328,-103.635729,,,January 2012,December 2025
+8,DAHLFEDERAL 2-15H,OASIS PETROLEUM NORTH AMERICA LLC,County,ND,City State Zip Code,Active,Oil & Gas,H,Williston,48.080324,-103.655498,1.5 k,3.4 k,May 2012,December 2025
+9,Yukon 5301 41-12T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.082914,-103.622634,1.1 k,1.5 k,September 2013,December 2025
+10,Jefferies 5301 43-12B,OASIS PETROLEUM NORTH AMERICA LLC,Mckenzie,ND,,Active,Oil & Gas,H,Williston,48.082743,-103.614283,852,2.7 k,March 2012,December 2025
+11,lnnoko 5301 43-12T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.08273,-103.613628,588,1.5 k,September 2013,December 2025
+12,Magnum 1-36-25H,ENERPLUS RESOURCES USA CORPORATION,Mckenzie,ND,,Active,Oil & Gas,H,Williston,48.025064,-103.622135,1.4 k,1 k,April 2012,December 2025
+13,Ma num 2-36-25H SESE 36 McKenzie,ENERPLUS RESOURCES USA CORPORATION,Field,ND,City State Zip Code,Active,Oil & Gas,H,Williston,48.024944,-103.605063,296,193,February 2013,December 2025
+14,Magnum 3-36-25H,ENERPLUS RESOURCES USA CORPORATION,Mckenzie,ND,,Active,Oil & Gas,H,Williston,48.024944,-103.605166,,,July 2012,December 2025
+15,Larry 5301 44-12B,OASIS PETROLEUM NORTH AMERICA LLC,Mckenzie,ND,,Active,Oil & Gas,H,Williston,48.082612,-103.607281,510,1.7 k,September 2012,December 2025
+16,Ash Federal 5300 11-18T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.079672,-103.602545,256,186,November 2012,December 2025
+17,Atlanta 14-SH,"CONTINENTAL RESOURCES, INC.",Williams,ND,P .0. Box 268870,Active,Oil & Gas,H,Williston,48.109434,-103.727494,592,872,February 2014,December 2025
+18,Atlanta 13-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,,Active,Oil & Gas,H,Williston,48.109439,-103.727678,608,884,February 2014,December 2025
+19,AUmta 12-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,- P.O. Box 268870,Inactive,Oil & Gas,H,Williston,48.109444,-103.727862,,,February 2014,December 2025
+20,Atlanta 11-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,,Active,Oil & Gas,H,Williston,48.10945,-103.728047,565,843,February 2014,December 2025
+21,Atlanta Federal 10-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,,Active,Oil & Gas,H,Williston,48.109455,-103.728231,387,666,February 2014,December 2025
+22,Atlanta Federal 9-6H,"CONTINENTAL RESOURCES, INC.",Well,ND,,Inactive,Oil & Gas,H,Williston,48.10946,-103.728415,,,February 2014,December 2025
+23,Atlanta Federal 8-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,,Active,Oil & Gas,H,Williston,48.109493,-103.729603,229,493,February 2014,December 2025
+24,Atlanta Federal 7-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,,Active,Oil & Gas,H,Williston,48.109499,-103.729788,787,1 k,February 2014,December 2025
+25,Atlanta Federal 6-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,,Active,Oil & Gas,H,Williston,48.109504,-103.729972,339,609,February 2014,December 2025
+26,Atlanta Federal 5-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,,Active,Oil & Gas,H,Williston,48.10951,-103.730156,520,794,February 2014,December 2025
+27,Atlanta 4-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,,Active,Oil & Gas,H,Williston,48.109535,-103.730975,173,449,February 2014,December 2025
+28,Atlanta 3-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,P.O. Box 268870,Active,Oil & Gas,H,Williston,48.109439,-103.727678,608,884,February 2014,December 2025
+29,Atlanta 2-6H,"CONTINENTAL RESOURCES, INC.",Williams,ND,,Active,Oil & Gas,H,Williston,48.109546,-103.731344,84,351,February 2014,December 2025
+30,Atlanta 1-GH,"CONTINENTAL RESOURCES, INC.",,ND,P.O. Box 268870,Active,Oil & Gas,H,Williston,48.109552,-103.731528,,,March 2013,December 2025
+31,Columbus Federal 1-16H,"CONTINENTAL RESOURCES, INC.",,ND,P.O. Box 268870,Active,Oil & Gas,H,Williston,48.074859,-103.67017,1.1 k,2.5 k,July 2013,December 2025
+32,Tallahassee 3-16H,"CONTINENTAL RESOURCES, INC.",Mckenzie,ND,P .0. Box 268870 Oklahoma City OK 73126,Active,Oil & Gas,H,Williston,48.075131,-103.669967,389,419,March 2014,December 2025
+33,Tallahassee 2-16H,"CONTINENTAL RESOURCES, INC.",,ND,P.O. Box 268870,Active,Oil & Gas,H,Williston,48.075235,-103.669874,277,1.3 k,March 2014,December 2025
+34,Columbus Federal 2-16H,"CONTINENTAL RESOURCES, INC.",,ND,P.O. Box 268870,Active,Oil & Gas,H,Williston,48.075342,-103.66978,815,1.4 k,March 2014,December 2025
+35,Columbus Federal 3-16H ~ 4 & lt-153N-101W Sec__ '-I i ti J-2 I,"CONTINENTAL RESOURCES, INC.",,ND,P.O. Box 268870,Active,Oil & Gas,H,Williston,48.075449,-103.669687,570,702,March 2014,December 2025
+36,Colville 5301 44-12T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.082623,-103.607895,714,1.1 k,September 2013,December 2025
+37,Lewis Federal 5300 21-31 6B,OASIS PETROLEUM NORTH AMERICA LLC,Mckenzie,ND,,Active,Oil & Gas,H,Williston,48.031718,-103.603085,967,4.1 k,September 2019,December 2025
+38,Lewis Federal 5300 21-31 5B,OASIS PETROLEUM NORTH AMERICA LLC,Mckenzie,ND,,Active,Oil & Gas,H,Williston,48.031808,-103.603086,1 k,211,September 2019,December 2025
+39,Wade Federal 5300 31-30 11 T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.044162,-103.60267,243,1.2 k,May 2015,December 2025
+40,Chalmers 5301 44-24 2TR,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.055866,-103.604903,275,2.5 k,December 2014,December 2025
+41,Wade Federal 5300 41-30 4T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.042266,-103.603158,78,779,May 2015,December 2025
+42,Wade Federal 5300 41-30 6B,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Inactive,Oil & Gas,H,Williston,48.041298,-103.603014,,,June 2015,December 2025
+43,Wade Federal 5300 31-30 2B,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.042447,-103.603155,266,1.6 k,May 2015,December 2025
+44,Wade Federal 5300 41-30 7T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.041208,-103.603016,317,1.1 k,June 2015,December 2025
+45,Chalmers 5301 44-24 3BR,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.055776,-103.604903,1.3 k,4 k,December 2014,December 2025
+46,~!8T1'3N P'>IOrw,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Dry Hole,Oil & Gas,H,Williston,48.055504,-103.604905,,,,
+47,Chalmers Wade Federal 5301 44-2412TXR,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.055551,-103.604905,540,3.6 k,December 2014,December 2025
+48,Chalmers 5300 21-19 5T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.061796,-103.602522,396,1 k,July 2015,December 2025
+49,Chalmers 5300 21-19 6B,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.061706,-103.602522,292,553,July 2015,December 2025
+50,Chalmers 5300 21-19 ST,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.061525,-103.602523,227,1.5 k,July 2015,December 2025
+51,Chalmers 5300 21-19 1 OT,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.061344,-103.602525,248,1.3 k,May 2015,December 2025
+52,Chalmers 5300 21-19 9B,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.061434,-103.602524,321,1.2 k,May 2015,December 2025
+53,Chalmers 5300 21-19 11 B,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.061254,-103.602525,135,770,May 2015,December 2025
+54,Kline Federal 5300 41-18 9T,OASIS PETROLEUM NORTH AMERICA LLC,McKenzie,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.069087,-103.602869,379,2.6 k,September 2015,December 2025
+55,Kline Federal 5300 41-18 10B,OASIS PETROLEUM NORTH AMERICA LLC,McKenzie,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.068997,-103.602868,80,152,September 2015,December 2025
+56,Kline Federal 5300 41-18 13T2X,OASIS PETROLEUM NORTH AMERICA LLC,McKenzie,ND,"1001 Fannin, Suite 1500",Plugged and Abandoned,Oil & Gas,H,Williston,48.068726,-103.602865,,,August 2015,July 2024
+57,Kline Federal 5300 41-18 14BX,OASIS PETROLEUM NORTH AMERICA LLC,McKenzie,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.068635,-103.602863,872,5.3 k,August 2015,December 2025
+58,Kline Federal 5300 41-18 12TX,OASIS PETROLEUM NORTH AMERICA LLC,McKenzie,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.068816,-103.602866,153,1.2 k,September 2015,December 2025
+59,Wade Federal 5300 41-30 9B,OASIS PETROLEUM NORTH AMERICA LLC,Williams,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.041027,-103.60302,305,3 k,June 2015,December 2025
+60,Kline Federal 5300 31-18 8B,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.074542,-103.602936,185,451,September 2015,December 2025
+61,Kline Federal 5300 31-18 7T Sec.17/18,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.074452,-103.602935,285,1.1 k,September 2015,December 2025
+62,Kline Federal 5300 31-18 6B,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Abandoned,Oil & Gas,H,Williston,48.074362,-103.602934,,,September 2015,December 2025
+63,Wade Federal 5300 21-30 12T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.048736,-103.602904,501,1.9 k,May 2015,December 2025
+64,WADE FEDERAL 5300 21-30 13B,OASIS PETROLEUM NORTH AMERICA LLC,Mckenzie,ND,"1001 Fannin, Suite 1500 Houston TX 77002",Active,Oil & Gas,H,Williston,48.048917,-103.6029,50,245,April 2015,December 2025
+65,Kline Federal 5300 11-18 5B,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.078987,-103.602835,318,2.4 k,August 2015,December 2025
+66,Kline Federal 5300 11-18 3T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.079069,-103.602783,158,743,August 2015,December 2025
+67,Gramma Federal 5300 41-3112B,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.026154,-103.602783,723,3.8 k,June 2015,December 2025
+68,Gramma Federal 5300 41-31 13T,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.026335,-103.602785,357,2.9 k,July 2015,December 2025
+69,Kline Federal 5300 11-18 2B,OASIS PETROLEUM NORTH AMERICA LLC,,ND,"1001 Fannin, Suite 1500",Active,Oil & Gas,H,Williston,48.079234,-103.60267,206,1.9 k,September 2015,December 2025
+70,Lewis Federa1 5300 11‐,OASIS PETROLEUM NORTH AMERICA LLC,,ND,揃ｌ,Active,Oil & Gas,H,Williston,48.035835,-103.603111,1.8 k,4.2 k,September 2019,December 2025
+71,Lewis Federal 5300 11-31 2B,OASIS PETROLEUM NORTH AMERICA LLC,Mckenzie,ND,,Active,Oil & Gas,H,Williston,48.035926,-103.6031,711,3.9 k,September 2019,December 2025
+72,KLINE FEDERAL 5300 31-18 15T LOT3,OASIS PETROLEUM NORTH AMERICA LLC,Mckenzie,ND,P.O. Box 3886 Enid OK 73702,Active,Oil & Gas,H,Williston,48.074633,-103.602938,489,1.8 k,September 2015,December 2025
+73,Lewis Federal 5300 11-31 4BR,OASIS PETROLEUM NORTH AMERICA LLC,Mckenzie,ND,,Active,Oil & Gas,H,Williston,48.035654,-103.60313,511,1.7 k,September 2019,December 2025
+75,Atl mta #1 SWD,"CONTINENTAL RESOURCES, INC.",Williams,ND,P. 0. Box 268870,Active,Salt Water Disposal,V,Williston,48.110204,-103.731807,,,,
