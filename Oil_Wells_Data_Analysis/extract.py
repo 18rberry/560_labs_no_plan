@@ -46,7 +46,7 @@ not scanned images.  Tool comparison for this type of document:
       causes both tools to mis-segment columns; pdfplumber's text stream +
       regex parsing is more reliable for these forms.
 
-Conclusion: pdfplumber + regex post-processing is the right tool here.
+Conclusion: Based on our research/experimentation, we found that pdfplumber + regex post-processing is the right tool here.
 """
 
 import csv
