@@ -5,7 +5,7 @@ Team Name: NoPlan
 
 Team Members: Riya Berry | Benjamin Lu | Ryan Tung 
 
-This repo illustrates our lab assignmnets for DSCI 560 (Spring 2026). For Lab 6, please visit "Oil_Wells_Data_Analysis" (code & PDF of lab report). In this lab, we focus on extract text, web scraping, data processing, and GIS/Visualization from scanned pdf data about oil wells across the nation. We will also update the Github once we have published our demo video. 
+This repo illustrates our lab assignmnets for DSCI 560 (Spring 2026). For Lab 6, please visit "Oil_Wells_Data_Analysis" (code & PDF of lab report). In this lab, we focus on extract text, web scraping, data processing, and GIS/Visualization from scanned pdf data about oil wells across the nation. Additionally, here is our link to the demo video/walkthrough: https://youtu.be/NSGFmOnViUY
 
 Below are some examples of our web visualization of oil wells! 
 
