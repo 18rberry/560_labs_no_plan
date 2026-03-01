@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Team NoPlan — Live Tracker</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    body { font-family: monospace; background: #111; color: #eee; margin: 0; padding: 20px; }
+    h1 { font-size: 18px; margin-bottom: 16px; color: #00ff88; }
+    #map { width: 100%; height: 500px; border-radius: 8px; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; padding: 8px; background: #222; color: #00ff88; }
+    td { padding: 8px; border-bottom: 1px solid #333; }
+    .ryan { color: #00ff88; }
+    .riya { color: #df2093; }
+    #status { font-size: 12px; color: #888; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<h1>Team NoPlan — Custom Mapping Program !</h1>
+<div id="status">Connecting to ThingsBoard...</div>
+<div id="map"></div>
+
+<table>
+  <tr><th>Device</th><th>Latitude</th><th>Longitude</th><th>Pressure</th><th>Last Updated</th></tr>
+  <tr><td class="ryan">Ryan Tung's Phone</td><td id="ryan-lat">—</td><td id="ryan-lon">—</td><td id="ryan-p">—</td><td id="ryan-time">—</td></tr>
+  <tr><td class="riya">Riya Berry's Phone</td><td id="riya-lat">—</td><td id="riya-lon">—</td><td id="riya-p">—</td><td id="riya-time">—</td></tr>
+</table>
+
+<script>
+  // set up the config (with each of our phones)
+  // deviceId is from Thingsboard (when we added each device)
+  const HOST = 'http://54.219.159.104:8080';
+  const DEVICES = [
+    { id: 'ryan', name: "Ryan's Phone", deviceId: 'e45c9380-1444-11f1-9629-4b0c7efe458b', color: '#00ff88' },
+    { id: 'riya', name: "Riya's Phone", deviceId: '373975b0-14fd-11f1-a956-d3409dec3d58', color: '#df2093' }
+  ];
+
+  // set up the map here (using OpenStreetMap)
+  const map = L.map('map').setView([34.02, -118.29], 14);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  const markers = {};
+
+  //  Login to Thingsboard get JWT token (so that we can access everything)
+  async function login() {
+    const res = await fetch(`${HOST}/api/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      // credentials/login info was set up earlier in the lab 
+      body: JSON.stringify({ username: 'tenant@thingsboard.org', password: 'tenant' })
+    });
+    const data = await res.json();
+    return data.token;
+  }
+
+  // grab latest telemetry (aka location) data for a device 
+  async function fetchTelemetry(token, deviceId) {
+    const res = await fetch(
+      `${HOST}/api/plugins/telemetry/DEVICE/${deviceId}/values/timeseries?keys=lat,lon,p`,
+      { headers: { 'X-Authorization': `Bearer ${token}` } }
+    );
+    return await res.json();
+  }
+
+  // Update map + table with the new location results 
+  function updateDevice(device, data) {
+    const lat = parseFloat(data.lat?.[0]?.value);
+    const lon = parseFloat(data.lon?.[0]?.value);
+    const p   = parseFloat(data.p?.[0]?.value);
+
+    // grab lat, long, pressure (p), and time last updated 
+    document.getElementById(`${device.id}-lat`).textContent  = lat ? lat.toFixed(6) : '—';
+    document.getElementById(`${device.id}-lon`).textContent  = lon ? lon.toFixed(6) : '—';
+    document.getElementById(`${device.id}-p`).textContent    = p   ? p.toFixed(2)   : '—';
+    document.getElementById(`${device.id}-time`).textContent = new Date().toLocaleTimeString();
+
+    if (lat && lon) {
+      if (markers[device.id]) {
+        markers[device.id].setLatLng([lat, lon]);
+      } else {
+        markers[device.id] = L.circleMarker([lat, lon], {
+          radius: 10, color: device.color, fillColor: device.color, fillOpacity: 0.9
+        }).addTo(map).bindPopup(`<b>${device.name}</b><br>${lat.toFixed(5)}, ${lon.toFixed(5)}`);
+      }
+    }
+  }
+
+  // main function 
+  async function main() {
+    const token = await login();
+    document.getElementById('status').textContent = '✓ Connected  to ThingsBoard— updating every 5s';
+
+    async function refresh() {
+      for (const device of DEVICES) {
+        const data = await fetchTelemetry(token, device.deviceId);
+        updateDevice(device, data);
+      }
+    }
+
+    refresh();
+    setInterval(refresh, 5000);
+  }
+
+  main();
+</script>
+</body>
+</html>
