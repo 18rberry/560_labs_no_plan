@@ -9,6 +9,9 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import normalize
 from sklearn.metrics import silhouette_score
 from sklearn.manifold import TSNE
+from wordcloud import WordCloud
+from collections import Counter
+from doc2vec_embeddings import examine_clusters, preprocess_text
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -104,6 +107,14 @@ if __name__ == "__main__":
         out_path = f"bow_clusters_{K}.csv"
         out_df.to_csv(out_path, index=False)
         print(f"  Saved {out_path}")
+
+        # Step 5b: word cloud evaluation
+        df['cluster'] = labels
+        wc_path = f'bow_wordclouds_{K}.png'
+        print("  Step 5b: Generating word cloud per cluster...")
+        examine_clusters(df, normalized, kmeans_docs, N_DOC_CLUSTERS,
+                         text_col='title', fig_title=f'BoW Word Clouds (K={K})', save_path=wc_path)
+        print(f"  Saved {wc_path}")
 
         # Step 6: evaluate
         score = silhouette_score(normalized, labels, metric="cosine")

@@ -7,12 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1tpsrNO2ONv0VgAtBr1-ZoZDCcyOvMAev
 """
 
-!pip install nltk
-!pip install gensim
-!pip install pandas
-!pip install matplotlib
-!pip install seaborn
-
 import nltk
 import gensim
 from nltk.tokenize import word_tokenize
@@ -48,15 +42,8 @@ def preprocess_text(text):
     tokens = [word for word in tokens if word not in stop_words]
     return tokens
 
-df = pd.read_csv('reddit_posts.csv')
-df = df.drop_duplicates()
-df['title_cleaned'] = df['title'].apply(lambda x: preprocess_text(x))
-
-# additional data cleaning & pre-processing
-df = df.dropna(axis=0, how='any')
-df = df.reset_index(drop=True)
-
-def examine_clusters(df, doc_vectors, kmeans, optimal_k):
+def examine_clusters(df, doc_vectors, kmeans, optimal_k, text_col='title_cleaned',
+                     fig_title='Word Clouds per Cluster', save_path=None):
     fig, axes = plt.subplots(1, optimal_k, figsize=(20, 5))
 
     for cluster_id in range(optimal_k):
@@ -67,7 +54,7 @@ def examine_clusters(df, doc_vectors, kmeans, optimal_k):
         print(f"Number of posts: {len(cluster_posts)}")
 
         all_tokens = []
-        for title in cluster_posts['title_cleaned']:
+        for title in cluster_posts[text_col]:
             all_tokens.extend(preprocess_text(str(title)))
         keyword_counts = Counter(all_tokens)
         top_keywords = [(w, c) for w, c in keyword_counts.most_common(10) if w != 'usc']
@@ -96,11 +83,15 @@ def examine_clusters(df, doc_vectors, kmeans, optimal_k):
         axes[cluster_id].axis('off')
         axes[cluster_id].set_title(f'Cluster {cluster_id}')
 
-    plt.suptitle('Word Clouds per Cluster', fontsize=14)
+    plt.suptitle(fig_title, fontsize=14)
     plt.tight_layout()
-    plt.show()
+    if save_path:
+        plt.savefig(save_path, dpi=150)
+        plt.close()
+    else:
+        plt.show()
 
-def k_means_tsne(optimal_k, doc_vectors):
+def k_means_tsne(df, optimal_k, doc_vectors, vector_size=''):
   kmeans = KMeans(n_clusters = optimal_k, random_state=42, n_init=10)
   df['cluster'] = kmeans.fit_predict(doc_vectors)
 
@@ -115,15 +106,19 @@ def k_means_tsne(optimal_k, doc_vectors):
 
   # Transform centroids to t-SNE space
   # approximate bc t-SNE doesn't have a transform method -> visualize cluster regions instead
-  plt.title('K-Means Clustering with t-SNE Visualization')
+  plt.title(f'K-Means Clustering with t-SNE Visualization (vector_size={vector_size})')
   plt.xlabel('t-SNE Dimension 1')
   plt.ylabel('t-SNE Dimension 2')
   plt.legend()
-  plt.show()
+  plt.tight_layout()
+  plt.savefig(f'd2v_tsne_size{vector_size}.png', dpi=150)
+  plt.close()
 
-  return examine_clusters(df, doc_vectors, kmeans, optimal_k)
+  return examine_clusters(df, doc_vectors, kmeans, optimal_k,
+                          fig_title=f'Doc2Vec Word Clouds (size={vector_size})',
+                          save_path=f'd2v_wordclouds_size{vector_size}.png')
 
-def create_doc2vec_model(vector_size, min_count, epochs, dm, model_name):
+def create_doc2vec_model(df, vector_size, min_count, epochs, dm, model_name):
   # create document embeddings
   tagged_data = [TaggedDocument(words=doc, tags=[str(i)]) for i, doc in enumerate(df['title_cleaned'])]
 
@@ -131,7 +126,7 @@ def create_doc2vec_model(vector_size, min_count, epochs, dm, model_name):
       vector_size=vector_size,      # Smaller dimension is better for short titles
       min_count=min_count,          # min word frequency/count for it to be included
       epochs=epochs,                # training epochs
-      dm=0,                         # DBOW (distributed bag of words) technique (binary)
+      dm=dm,                        # DBOW (dm=0) or DM (dm=1)
       window=5,                # context window length
       workers=4
   )
@@ -147,14 +142,21 @@ def create_doc2vec_model(vector_size, min_count, epochs, dm, model_name):
 
   # Get document vectors
   doc_vectors = np.array([model_v1.dv[str(i)] for i in range(len(df))])
-  return k_means_tsne(4, doc_vectors)
+  return k_means_tsne(df, 4, doc_vectors, vector_size=vector_size)
 
-# try with small vector size
-doc_vectors_small = create_doc2vec_model(vector_size=50, min_count=1, epochs=20, dm = 0, model_name = "doc2vec_small.bin")
+if __name__ == "__main__":
+    df = pd.read_csv('reddit_posts.csv')
+    df = df.drop_duplicates()
+    df['title_cleaned'] = df['title'].apply(lambda x: preprocess_text(x))
+    df = df.dropna(axis=0, how='any')
+    df = df.reset_index(drop=True)
 
-# try with medium vector size
-doc_vectors_mid = create_doc2vec_model(vector_size=100, min_count=2, epochs=50, dm = 0, model_name = "doc2vec_medium.bin")
+    # try with small vector size
+    create_doc2vec_model(df, vector_size=50, min_count=1, epochs=20, dm=0, model_name="doc2vec_small.bin")
 
-# try with medium vector size
-doc_vectors_large = create_doc2vec_model(vector_size=300, min_count=1, epochs=100, dm = 1, model_name = "doc2vec_large.bin")
+    # try with medium vector size
+    create_doc2vec_model(df, vector_size=100, min_count=2, epochs=50, dm=0, model_name="doc2vec_medium.bin")
+
+    # try with large vector size
+    create_doc2vec_model(df, vector_size=300, min_count=1, epochs=100, dm=1, model_name="doc2vec_large.bin")
 
