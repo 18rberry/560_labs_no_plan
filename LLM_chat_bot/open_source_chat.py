@@ -4,17 +4,17 @@ from langchain_community.vectorstores import FAISS
 from langchain_classic.memory import ConversationBufferMemory
 from langchain_classic.chains import ConversationalRetrievalChain
 from langchain_huggingface import HuggingFacePipeline
-from sentence_transformers import SentenceTransformer
+from langchain_community.embeddings import SentenceTransformerEmbeddings
 from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 import textwrap
 
 # CONFIGURATION 
-PDF_PATH = 'LLM_chat_bot/ads_textbook.pdf'
+PDF_PATH = '/Users/ryantung/Downloads/Ads cookbook .pdf'
 SBERT_MODEL = 'all-MiniLM-L6-v2'
 LLM = 'google/flan-t5-small'
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 100
-K_RETRIEVE = 6
+K_RETRIEVE = 3
 
 
 def conversation_chain(llm, vector_store):
@@ -27,6 +27,8 @@ def conversation_chain(llm, vector_store):
         'text2text-generation',
         model=model,
         tokenizer=tokenizer,
+        max_length=256,
+        truncation=True,
         device=-1
     )
 
@@ -44,7 +46,7 @@ def conversation_chain(llm, vector_store):
 
     # Create chain
     conversation = ConversationalRetrievalChain.from_llm(
-        llm=llm,
+        llm=llm_pipeline,
         retriever=retriever,
         memory=memory,
         verbose=False
@@ -69,7 +71,7 @@ def driver_function():
     chunks = text_splitter.split_documents(pages)
 
     # Create vector store
-    embedding_model = SentenceTransformer(model_name=SBERT_MODEL)
+    embedding_model = SentenceTransformerEmbeddings(model_name=SBERT_MODEL)
     vector_store = FAISS.from_documents(chunks, embedding_model)
 
     # Create conversation chain
