@@ -1,0 +1,270 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+}
+
+/* ─── Sidebar ──────────────────────────────────────────────── */
+#sidebar {
+  width: 280px;
+  min-width: 220px;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  border-right: 1px solid #313244;
+}
+
+#sidebar h2 {
+  padding: 1.25rem 1rem 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #cba6f7;
+  border-bottom: 1px solid #313244;
+}
+
+.section {
+  padding: 1rem;
+  border-bottom: 1px solid #313244;
+}
+
+.section h3 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6c7086;
+  margin-bottom: 0.6rem;
+}
+
+/* Radio cards */
+.radio-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: #181825;
+  border: 1px solid #313244;
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.radio-card:hover {
+  border-color: #cba6f7;
+}
+
+.radio-card input[type="radio"] {
+  margin-top: 3px;
+  accent-color: #cba6f7;
+}
+
+.radio-card span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.radio-card strong {
+  font-size: 0.85rem;
+  color: #cdd6f4;
+}
+
+.radio-card small {
+  font-size: 0.72rem;
+  color: #6c7086;
+}
+
+/* Upload area */
+.upload-area {
+  border: 1.5px dashed #45475a;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.6rem;
+  transition: border-color 0.15s;
+}
+
+.upload-area:hover {
+  border-color: #cba6f7;
+}
+
+#file-input {
+  display: none;
+}
+
+.file-label {
+  display: inline-block;
+  background: #313244;
+  color: #cdd6f4;
+  border-radius: 4px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.file-label:hover {
+  background: #45475a;
+}
+
+#pdf-list {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+#pdf-list li {
+  font-size: 0.75rem;
+  color: #a6e3a1;
+  padding: 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#upload-btn, #reset-btn {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+#upload-btn {
+  background: #cba6f7;
+  color: #1e1e2e;
+  font-weight: 600;
+}
+
+#upload-btn:hover:not([disabled]) {
+  background: #b4befe;
+}
+
+#reset-btn {
+  background: #313244;
+  color: #cdd6f4;
+  margin-top: 0.5rem;
+}
+
+#reset-btn:hover {
+  background: #45475a;
+}
+
+#status-msg {
+  font-size: 0.8rem;
+  color: #a6adc8;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+/* ─── Chat panel ────────────────────────────────────────────── */
+#chat-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Messages */
+.message {
+  max-width: 72%;
+  padding: 0.65rem 0.9rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: #4f46e5;
+  color: #fff;
+  border-bottom-right-radius: 3px;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background: #e5e7eb;
+  color: #111;
+  border-bottom-left-radius: 3px;
+}
+
+.message .timestamp {
+  display: block;
+  font-size: 0.65rem;
+  margin-top: 0.3rem;
+  opacity: 0.6;
+  text-align: right;
+}
+
+.message.bot .timestamp {
+  text-align: left;
+}
+
+/* Input bar */
+#input-bar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+}
+
+#user-input {
+  flex: 1;
+  resize: none;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  max-height: 120px;
+}
+
+#user-input:focus {
+  border-color: #4f46e5;
+}
+
+#send-btn {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#send-btn:hover:not([disabled]) {
+  background: #4338ca;
+}
+
+/* Disabled state */
+[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+}

@@ -3,10 +3,34 @@ from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_classic.memory import ConversationBufferMemory
 from langchain_classic.chains import ConversationalRetrievalChain
-from langchain_huggingface import HuggingFacePipeline
 from langchain_community.embeddings import SentenceTransformerEmbeddings
-from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
+from langchain_core.language_models.llms import LLM
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from pydantic import PrivateAttr
+from typing import Any, Optional, List
+import torch
 import textwrap
+
+
+class FlanT5LLM(LLM):
+    model_name: str
+    _tokenizer: Any = PrivateAttr()
+    _model: Any = PrivateAttr()
+
+    def __init__(self, model_name: str, **kwargs):
+        super().__init__(model_name=model_name, **kwargs)
+        self._tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self._model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+
+    def _call(self, prompt: str, stop: Optional[List[str]] = None, **kwargs) -> str:
+        inputs = self._tokenizer(prompt, return_tensors="pt", truncation=True, max_length=512)
+        with torch.no_grad():
+            outputs = self._model.generate(**inputs, max_new_tokens=256)
+        return self._tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+    @property
+    def _llm_type(self) -> str:
+        return "flan-t5"
 
 # CONFIGURATION 
 PDF_PATH = '/Users/ryantung/Downloads/Ads cookbook .pdf'
@@ -19,23 +43,9 @@ K_RETRIEVE = 3
 
 def conversation_chain(llm, vector_store):
     # Initialize model
-    tokenizer = AutoTokenizer.from_pretrained(llm)
-    model = AutoModelForSeq2SeqLM.from_pretrained(llm)
+    llm_pipeline = FlanT5LLM(model_name=llm)
 
-    # Build pipeline
-    model_pipeline = pipeline(
-        'text2text-generation',
-        model=model,
-        tokenizer=tokenizer,
-        max_length=256,
-        truncation=True,
-        device=-1
-    )
-
-    # Apply LangChain wrapper
-    llm_pipeline = HuggingFacePipeline(pipeline=model_pipeline)
-
-    # Initialize memeory
+    # Initialize memory
     memory = ConversationBufferMemory(
         memory_key='chat_history',
         return_messages=True

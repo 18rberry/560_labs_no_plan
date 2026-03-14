@@ -1,3 +1,9 @@
 /venv
 .venv
 /Oil_Wells_Data_Analysis/DSCI560_Lab5
+
+# Claude
+.claude/
+#Env files
+
+*.env
